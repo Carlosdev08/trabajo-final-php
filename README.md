@@ -122,7 +122,7 @@ $_ENV['DB_PASS'] = '';
 
 ### 👤 **Credenciales de Acceso**
 
-- **Administrador**: `admin` / `***`
+- **Administrador**: `masterd` / `Master.davante5`
 - **Usuario Demo**: `miralofles` / `****`
 
 ## 💻 Tecnologías Utilizadas

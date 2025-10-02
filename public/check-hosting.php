@@ -70,11 +70,11 @@ try {
     // Cargar configuración
     if (file_exists('config/env.php')) {
         include_once 'config/env.php';
-        
+
         $dsn = "mysql:host={$_ENV['DB_HOST']};port={$_ENV['DB_PORT']};dbname={$_ENV['DB_NAME']};charset=utf8mb4";
         $pdo = new PDO($dsn, $_ENV['DB_USER'], $_ENV['DB_PASS']);
         echo "<p><span class='ok'>✅ Conexión exitosa a base de datos</span></p>";
-        
+
         // Verificar tabla de usuarios
         $stmt = $pdo->query("SHOW TABLES LIKE 'usuarios'");
         if ($stmt->rowCount() > 0) {
@@ -82,7 +82,7 @@ try {
         } else {
             echo "<p><span class='error'>❌ Tabla usuarios no encontrada - Importar newsletters.sql</span></p>";
         }
-        
+
     } else {
         echo "<p><span class='error'>❌ Archivo config/env.php no encontrado</span></p>";
     }
