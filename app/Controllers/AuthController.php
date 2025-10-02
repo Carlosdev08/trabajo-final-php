@@ -74,7 +74,7 @@ class AuthController extends Controller
             'idUser' => $idUser,
             'usuario' => trim($_POST['usuario']),
             'email' => trim($_POST['email']),
-            'password' => $_POST['password'],
+            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             'rol' => 'user',
         ]);
 

@@ -71,7 +71,7 @@ class UsuariosAdminController extends Controller
             'idUser' => $idUser,
             'usuario' => trim($_POST['usuario']),
             'email' => trim($_POST['email']),
-            'password' => $_POST['password'],
+            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             'rol' => $_POST['rol'] ?? 'user',
         ]);
 
