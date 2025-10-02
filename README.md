@@ -122,8 +122,8 @@ $_ENV['DB_PASS'] = '';
 
 ### 👤 **Credenciales de Acceso**
 
-- **Administrador**: `admin` / `admin123`
-- **Usuario Demo**: `miralofles` / `user123`
+- **Administrador**: `admin` / `***`
+- **Usuario Demo**: `miralofles` / `****`
 
 ## 💻 Tecnologías Utilizadas
 
