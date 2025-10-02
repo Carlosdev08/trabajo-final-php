@@ -1,225 +1,225 @@
 /* Estilos para las páginas de servicios */
 
 .servicios-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 4rem 0;
-    text-align: center;
-    margin-bottom: 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .servicios-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .servicios-hero p {
-    font-size: 1.3rem;
-    opacity: 0.95;
-    max-width: 600px;
-    margin: 0 auto;
+  font-size: 1.3rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .servicio-card {
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    height: 100%;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  height: 100%;
 }
 
 .servicio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .servicio-card .card-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    padding: 2rem;
-    text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 2rem;
+  text-align: center;
 }
 
 .servicio-card .card-header i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    display: block;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
 }
 
 .servicio-card .card-header h3 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 600;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .servicio-card .card-body {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .caracteristicas-lista {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .caracteristicas-lista li {
-    padding: 0.5rem 0;
-    position: relative;
-    padding-left: 2rem;
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 2rem;
 }
 
 .caracteristicas-lista li:before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #28a745;
-    font-weight: bold;
-    font-size: 1.2rem;
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .precio-badge {
-    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 1rem;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1rem;
 }
 
 .tecnologias-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
 }
 
 .tecnologia-item {
-    text-align: center;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+  text-align: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .tecnologia-item:hover {
-    background: #e9ecef;
-    transform: translateY(-3px);
+  background: #e9ecef;
+  transform: translateY(-3px);
 }
 
 .tecnologia-item i {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #667eea;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #667eea;
 }
 
 .proceso-timeline {
-    position: relative;
-    padding: 2rem 0;
+  position: relative;
+  padding: 2rem 0;
 }
 
 .proceso-step {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-    position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
 .proceso-step:not(:last-child):after {
-    content: '';
-    position: absolute;
-    left: 25px;
-    top: 60px;
-    width: 2px;
-    height: 60px;
-    background: #667eea;
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 60px;
+  width: 2px;
+  height: 60px;
+  background: #667eea;
 }
 
 .proceso-numero {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin-right: 1rem;
-    flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 1rem;
+  flex-shrink: 0;
 }
 
 .contacto-form {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
 }
 
 .contacto-info {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-radius: 15px;
-    padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 15px;
+  padding: 2rem;
 }
 
 .contacto-info h4 {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .contacto-info .info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .contacto-info .info-item i {
-    width: 30px;
-    margin-right: 1rem;
-    font-size: 1.2rem;
+  width: 30px;
+  margin-right: 1rem;
+  font-size: 1.2rem;
 }
 
 .btn-servicio {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn-servicio:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-    color: white;
-    text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  color: white;
+  text-decoration: none;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .servicios-hero h1 {
-        font-size: 2rem;
-    }
-    
-    .servicios-hero p {
-        font-size: 1.1rem;
-    }
-    
-    .tecnologias-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-    
-    .proceso-step {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .proceso-step:not(:last-child):after {
-        display: none;
-    }
+  .servicios-hero h1 {
+    font-size: 2rem;
+  }
+
+  .servicios-hero p {
+    font-size: 1.1rem;
+  }
+
+  .tecnologias-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .proceso-step {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .proceso-step:not(:last-child):after {
+    display: none;
+  }
 }

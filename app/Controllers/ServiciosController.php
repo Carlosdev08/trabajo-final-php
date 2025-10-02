@@ -70,7 +70,7 @@ class ServiciosController extends Controller
 
         // Validar datos
         $errors = Validator::required($_POST, ['nombre', 'email', 'telefono', 'servicio', 'mensaje']);
-        
+
         // Validar email
         if (isset($_POST['email']) && !empty($_POST['email']) && !Validator::email($_POST['email'])) {
             $errors['email'] = 'El formato del email no es válido';

@@ -15,7 +15,7 @@
                     <p class="lead text-center mb-4">
                         Ayudamos a empresas a optimizar sus procesos tecnológicos y alcanzar sus objetivos digitales.
                     </p>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="caracteristicas-lista">

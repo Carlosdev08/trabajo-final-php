@@ -15,7 +15,7 @@
                     <p class="lead text-center mb-4">
                         Desarrollamos sitios web completos usando las mejores tecnologías y prácticas del mercado.
                     </p>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="caracteristicas-lista">

@@ -15,7 +15,7 @@
                     <p class="lead text-center mb-4">
                         Creamos aplicaciones móviles modernas para iOS y Android con la mejor experiencia de usuario.
                     </p>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="caracteristicas-lista">

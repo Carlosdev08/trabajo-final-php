@@ -23,7 +23,7 @@
                 <h2 class="mb-4">Solicitar Presupuesto</h2>
                 <form method="POST" action="<?= Core\Helpers::baseUrl('/servicios/contacto') ?>">
                     <?= Core\CSRF::getTokenInput() ?>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -79,8 +79,9 @@
 
                     <div class="mb-3">
                         <label for="mensaje" class="form-label">Mensaje *</label>
-                        <textarea class="form-control" id="mensaje" name="mensaje" rows="5" 
-                                  placeholder="Describe tu proyecto, necesidades específicas, plazos, etc." required></textarea>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
+                            placeholder="Describe tu proyecto, necesidades específicas, plazos, etc."
+                            required></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-servicio btn-lg">
@@ -94,7 +95,7 @@
         <div class="col-lg-4">
             <div class="contacto-info">
                 <h4>Información de Contacto</h4>
-                
+
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
                     <div>
@@ -163,33 +164,36 @@
                     </h2>
                     <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Los tiempos varían según la complejidad. Un sitio web básico: 2-4 semanas. 
-                            Aplicaciones complejas: 2-6 meses. Te daremos una estimación precisa tras el análisis inicial.
+                            Los tiempos varían según la complejidad. Un sitio web básico: 2-4 semanas.
+                            Aplicaciones complejas: 2-6 meses. Te daremos una estimación precisa tras el análisis
+                            inicial.
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq2">
                             ¿Ofrecen soporte después del lanzamiento?
                         </button>
                     </h2>
                     <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Sí, todos nuestros proyectos incluyen soporte post-lanzamiento. 
+                            Sí, todos nuestros proyectos incluyen soporte post-lanzamiento.
                             El período depende del paquete contratado, desde 1 mes hasta 1 año.
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq3">
                             ¿Trabajan con empresas internacionales?
                         </button>
                     </h2>
                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Absolutamente. Trabajamos con clientes de toda Europa y América. 
+                            Absolutamente. Trabajamos con clientes de toda Europa y América.
                             Usamos metodologías ágiles y herramientas de colaboración remota.
                         </div>
                     </div>

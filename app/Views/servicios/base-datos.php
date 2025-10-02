@@ -15,7 +15,7 @@
                     <p class="lead text-center mb-4">
                         Diseñamos y optimizamos bases de datos robustas que crecen con tu negocio.
                     </p>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="caracteristicas-lista">

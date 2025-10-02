@@ -86,7 +86,8 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-8">
-                            <p class="lead">Asesoramos a empresas en la transformación digital y implementación de soluciones tecnológicas innovadoras.</p>
+                            <p class="lead">Asesoramos a empresas en la transformación digital y implementación de
+                                soluciones tecnológicas innovadoras.</p>
                             <ul class="caracteristicas-lista">
                                 <li>Análisis de necesidades tecnológicas</li>
                                 <li>Planificación de proyectos digitales</li>
