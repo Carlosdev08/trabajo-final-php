@@ -8,6 +8,7 @@
     </div>
 <?php endif; ?>
 <form method="post">
+    <?= Core\CSRF::getTokenInput() ?>
     <div class="row g-3">
         <div class="col-md-6">
             <label class="form-label">Nombre</label>
@@ -49,6 +50,11 @@
         <div class="col-md-6">
             <label class="form-label">Contraseña</label>
             <input type="password" name="password" class="form-control" required>
+            <div class="form-text">Mínimo 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 símbolo</div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Confirmar contraseña</label>
+            <input type="password" name="confirmPassword" class="form-control" required>
         </div>
     </div>
     <div class="mt-3">

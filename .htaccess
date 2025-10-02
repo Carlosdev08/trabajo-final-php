@@ -32,3 +32,4 @@ RedirectMatch 403 ^/config/
 RedirectMatch 403 ^/core/
 RedirectMatch 403 ^/database/
 RedirectMatch 403 ^/routes/
+RedirectMatch 403 ^/logs/

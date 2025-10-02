@@ -8,6 +8,7 @@
     </div>
 <?php endif; ?>
 <form method="post">
+    <?= Core\CSRF::getTokenInput() ?>
     <div class="mb-3">
         <label class="form-label">Usuario</label>
         <input name="usuario" class="form-control" required>

@@ -152,6 +152,7 @@
                     aria-label="Close"></button>
             </div>
             <form method="POST" action="<?= Core\Helpers::baseUrl('/usuarios-administracion/store') ?>">
+                <?= Core\CSRF::getTokenInput() ?>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
@@ -271,6 +272,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="<?= Core\Helpers::baseUrl('/usuarios-administracion/update') ?>">
+                <?= Core\CSRF::getTokenInput() ?>
                 <div class="modal-body" id="contenidoEditarUsuario">
                     <!-- Contenido dinámico -->
                 </div>
@@ -310,6 +312,7 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <form method="POST" action="<?= Core\Helpers::baseUrl('/usuarios-administracion/delete') ?>"
                     class="d-inline">
+                    <?= Core\CSRF::getTokenInput() ?>
                     <input type="hidden" name="id" id="idUsuarioAEliminar">
                     <button type="submit" class="btn btn-danger">
                         <i class="fas fa-trash me-1"></i>

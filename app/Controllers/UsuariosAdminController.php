@@ -5,6 +5,8 @@ use Core\Controller;
 use Core\Session;
 use Core\Helpers;
 use Core\Validator;
+use Core\CSRF;
+use Core\SecurityLogger;
 use App\Models\UserData;
 use App\Models\UserLogin;
 
@@ -14,6 +16,7 @@ class UsuariosAdminController extends Controller
     {
         $auth = Session::get('auth');
         if (!$auth || $auth['rol'] !== 'admin') {
+            SecurityLogger::logSecurity('Intento de acceso no autorizado a admin panel');
             $this->redirect(Helpers::baseUrl('/login'));
             return false;
         }
@@ -44,40 +47,61 @@ class UsuariosAdminController extends Controller
         if (!$this->checkAdmin())
             return '';
 
-        $required = ['nombre', 'apellidos', 'email', 'telefono', 'fecha_nacimiento', 'usuario', 'password'];
-        $errors = Validator::required($_POST, $required);
-
-        if ($errors) {
-            $userModel = new UserData();
-            $usuarios = $userModel->getAll();
-            return $this->view('admin/usuarios', compact('errors', 'usuarios'));
+        // Validar CSRF
+        if (!CSRF::validateToken()) {
+            SecurityLogger::logCSRFFailure();
+            return json_encode(['success' => false, 'error' => 'Token de seguridad inválido']);
         }
 
-        // Crear usuario
-        $userDataModel = new UserData();
-        $idUser = $userDataModel->create([
-            'nombre' => trim($_POST['nombre']),
-            'apellidos' => trim($_POST['apellidos']),
-            'email' => trim($_POST['email']),
-            'telefono' => trim($_POST['telefono']),
-            'fecha_nacimiento' => $_POST['fecha_nacimiento'],
-            'direccion' => $_POST['direccion'] ?? null,
-            'sexo' => $_POST['sexo'] ?? null,
-        ]);
+        // Usar la nueva validación mejorada
+        $errors = Validator::validateUserCreation($_POST);
 
-        // Crear login
+        if ($errors) {
+            return json_encode(['success' => false, 'errors' => $errors]);
+        }
+
         $userLoginModel = new UserLogin();
-        $userLoginModel->create([
-            'idUser' => $idUser,
-            'usuario' => trim($_POST['usuario']),
-            'email' => trim($_POST['email']),
-            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-            'rol' => $_POST['rol'] ?? 'user',
-        ]);
+        
+        // Verificar unicidad del usuario y email
+        $existingUser = $userLoginModel->findByUsuario(trim($_POST['usuario']));
+        if ($existingUser) {
+            return json_encode(['success' => false, 'errors' => ['usuario' => 'Este nombre de usuario ya está en uso']]);
+        }
 
-        Session::set('flash', 'Usuario creado correctamente');
-        $this->redirect(Helpers::baseUrl('/usuarios-administracion'));
-        return '';
+        $existingEmail = $userLoginModel->findByEmail(trim($_POST['email']));
+        if ($existingEmail) {
+            return json_encode(['success' => false, 'errors' => ['email' => 'Este email ya está registrado']]);
+        }
+
+        try {
+            // Crear usuario
+            $userDataModel = new UserData();
+            $idUser = $userDataModel->create([
+                'nombre' => trim($_POST['nombre']),
+                'apellidos' => trim($_POST['apellidos']),
+                'email' => trim($_POST['email']),
+                'telefono' => trim($_POST['telefono']),
+                'fecha_nacimiento' => $_POST['fecha_nacimiento'],
+                'direccion' => $_POST['direccion'] ?? null,
+                'sexo' => $_POST['sexo'] ?? null,
+            ]);
+
+            // Crear login
+            $userLoginModel->create([
+                'idUser' => $idUser,
+                'usuario' => trim($_POST['usuario']),
+                'email' => trim($_POST['email']),
+                'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+                'rol' => $_POST['rol'] ?? 'user',
+            ]);
+
+            SecurityLogger::logUserCreation(trim($_POST['usuario']), $_POST['rol'] ?? 'user');
+            return json_encode(['success' => true, 'message' => 'Usuario creado correctamente']);
+            
+        } catch (\Exception $e) {
+            SecurityLogger::logError('Error creando usuario: ' . $e->getMessage());
+            return json_encode(['success' => false, 'error' => 'Error interno. Inténtalo de nuevo.']);
+        }
     }
 
     public function update(): string

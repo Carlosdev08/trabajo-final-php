@@ -5,13 +5,14 @@ class UserLogin extends BaseModel
 {
     public function create(array $data): int
     {
-        $sql = 'INSERT INTO users_login (idUser, usuario, password, rol)
-                VALUES (:idUser, :usuario, :password, :rol)';
+        $sql = 'INSERT INTO users_login (idUser, usuario, email, password, rol)
+                VALUES (:idUser, :usuario, :email, :password, :rol)';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             ':idUser' => $data['idUser'],
             ':usuario' => $data['usuario'],
-            ':password' => password_hash($data['password'], PASSWORD_BCRYPT, ['cost' => 12]),
+            ':email' => $data['email'],
+            ':password' => $data['password'], // Ya viene hasheada desde el controlador
             ':rol' => $data['rol'] ?? 'user',
         ]);
         return (int) $this->pdo->lastInsertId();
@@ -24,6 +25,17 @@ class UserLogin extends BaseModel
                                      JOIN users_data ud ON ul.idUser = ud.idUser 
                                      WHERE ul.usuario = :u');
         $stmt->execute([':u' => $usuario]);
+        $row = $stmt->fetch();
+        return $row ?: null;
+    }
+
+    public function findByEmail(string $email): ?array
+    {
+        $stmt = $this->pdo->prepare('SELECT ul.*, ud.nombre, ud.apellidos 
+                                     FROM users_login ul 
+                                     JOIN users_data ud ON ul.idUser = ud.idUser 
+                                     WHERE ul.email = :email');
+        $stmt->execute([':email' => $email]);
         $row = $stmt->fetch();
         return $row ?: null;
     }
