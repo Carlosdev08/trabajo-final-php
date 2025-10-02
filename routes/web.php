@@ -39,3 +39,12 @@ $router->get('/noticias-administracion', [App\Controllers\NoticiasAdminControlle
 $router->post('/noticias-administracion', [App\Controllers\NoticiasAdminController::class, 'store']);
 $router->post('/noticias-administracion/update', [App\Controllers\NoticiasAdminController::class, 'update']);
 $router->post('/noticias-administracion/delete', [App\Controllers\NoticiasAdminController::class, 'delete']);
+
+// RUTAS DE SERVICIOS
+$router->get('/servicios', [App\Controllers\ServiciosController::class, 'index']);
+$router->get('/servicios/desarrollo-web', [App\Controllers\ServiciosController::class, 'desarrolloWeb']);
+$router->get('/servicios/base-datos', [App\Controllers\ServiciosController::class, 'baseDatos']);
+$router->get('/servicios/apps-moviles', [App\Controllers\ServiciosController::class, 'appsMoviles']);
+$router->get('/servicios/consultoria', [App\Controllers\ServiciosController::class, 'consultoria']);
+$router->get('/servicios/contacto', [App\Controllers\ServiciosController::class, 'showContacto']);
+$router->post('/servicios/contacto', [App\Controllers\ServiciosController::class, 'procesarContacto']);

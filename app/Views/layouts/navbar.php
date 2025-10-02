@@ -18,6 +18,27 @@ $auth = Session::get('auth'); ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= Helpers::baseUrl('/noticias') ?>">Noticias</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Servicios
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="<?= Helpers::baseUrl('/servicios') ?>">
+                            <i class="fas fa-list me-2"></i>Todos los Servicios</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="<?= Helpers::baseUrl('/servicios/desarrollo-web') ?>">
+                            <i class="fas fa-code me-2"></i>Desarrollo Web</a></li>
+                        <li><a class="dropdown-item" href="<?= Helpers::baseUrl('/servicios/base-datos') ?>">
+                            <i class="fas fa-database me-2"></i>Base de Datos</a></li>
+                        <li><a class="dropdown-item" href="<?= Helpers::baseUrl('/servicios/apps-moviles') ?>">
+                            <i class="fas fa-mobile-alt me-2"></i>Apps Móviles</a></li>
+                        <li><a class="dropdown-item" href="<?= Helpers::baseUrl('/servicios/consultoria') ?>">
+                            <i class="fas fa-lightbulb me-2"></i>Consultoría</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="<?= Helpers::baseUrl('/servicios/contacto') ?>">
+                            <i class="fas fa-envelope me-2"></i>Contactar</a></li>
+                    </ul>
+                </li>
 
                 <?php if ($auth && $auth['rol'] === 'user'): ?>
                     <li class="nav-item">
