@@ -44,7 +44,7 @@ class AuthController extends Controller
         $userLogin = new UserLogin();
         $username = trim($_POST['usuario']);
         $row = $userLogin->findByUsuario($username);
-        
+
         if (!$row || !password_verify($_POST['password'], $row['password'])) {
             RateLimit::record('login');
             SecurityLogger::logLoginAttempt($username, false);
@@ -136,7 +136,7 @@ class AuthController extends Controller
             Session::set('flash', 'Registro correcto. Inicia sesion.');
             $this->redirect(Helpers::baseUrl('/login'));
             return '';
-            
+
         } catch (\Exception $e) {
             SecurityLogger::logError('Error durante el registro: ' . $e->getMessage());
             $errors['general'] = 'Error interno. Inténtalo de nuevo.';

@@ -28,7 +28,7 @@ final class SecurityLogger
         ];
 
         $logLine = json_encode($logData) . PHP_EOL;
-        
+
         error_log($logLine, 3, self::$logFile);
     }
 

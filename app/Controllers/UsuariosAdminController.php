@@ -61,7 +61,7 @@ class UsuariosAdminController extends Controller
         }
 
         $userLoginModel = new UserLogin();
-        
+
         // Verificar unicidad del usuario y email
         $existingUser = $userLoginModel->findByUsuario(trim($_POST['usuario']));
         if ($existingUser) {
@@ -97,7 +97,7 @@ class UsuariosAdminController extends Controller
 
             SecurityLogger::logUserCreation(trim($_POST['usuario']), $_POST['rol'] ?? 'user');
             return json_encode(['success' => true, 'message' => 'Usuario creado correctamente']);
-            
+
         } catch (\Exception $e) {
             SecurityLogger::logError('Error creando usuario: ' . $e->getMessage());
             return json_encode(['success' => false, 'error' => 'Error interno. Inténtalo de nuevo.']);

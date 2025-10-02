@@ -42,7 +42,7 @@ final class RateLimit
 
         $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
         $key = $action . '_' . $ip;
-        
+
         if (!isset($_SESSION[self::$sessionKey][$key])) {
             $_SESSION[self::$sessionKey][$key] = [];
         }
@@ -54,7 +54,7 @@ final class RateLimit
     {
         $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
         $key = $action . '_' . $ip;
-        
+
         if (isset($_SESSION[self::$sessionKey][$key])) {
             unset($_SESSION[self::$sessionKey][$key]);
         }
@@ -64,14 +64,14 @@ final class RateLimit
     {
         $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
         $key = $action . '_' . $ip;
-        
+
         if (!isset($_SESSION[self::$sessionKey][$key]) || empty($_SESSION[self::$sessionKey][$key])) {
             return 0;
         }
 
         $oldestAttempt = min($_SESSION[self::$sessionKey][$key]);
         $elapsed = time() - $oldestAttempt;
-        
+
         return max(0, $timeWindow - $elapsed);
     }
 }

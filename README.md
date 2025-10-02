@@ -5,6 +5,7 @@ Sistema web completo desarrollado en PHP puro con arquitectura MVC para la gesti
 ## 📋 Características Principales
 
 ### ✅ **Funcionalidades Implementadas**
+
 - 🔐 **Sistema de Autenticación** - Login/registro con roles (admin/user)
 - 👥 **Gestión de Usuarios** - CRUD completo con panel administrativo
 - 📰 **Sistema de Noticias** - Administración de contenido
@@ -15,24 +16,28 @@ Sistema web completo desarrollado en PHP puro con arquitectura MVC para la gesti
 ### 🛡️ **Características de Seguridad**
 
 #### 🔒 **Autenticación y Autorización**
+
 - Hash seguro de contraseñas con `PASSWORD_DEFAULT`
 - Verificación con `password_verify()`
 - Control de acceso basado en roles
 - Protección de rutas administrativas
 
 #### 🛡️ **Protección CSRF**
+
 - Tokens CSRF en todos los formularios
 - Validación automática en controladores
 - Regeneración segura de tokens
 
 #### ⚠️ **Rate Limiting**
+
 - **Login**: 5 intentos máximo en 5 minutos
 - **Registro**: 3 intentos máximo en 10 minutos
 - Mensajes informativos de tiempo de espera
 
 #### 🔍 **Validación Mejorada**
+
 - **Email**: Validación con `filter_var()`
-- **Contraseñas Fuertes**: 
+- **Contraseñas Fuertes**:
   - Mínimo 8 caracteres
   - 1 letra mayúscula
   - 1 letra minúscula
@@ -41,12 +46,14 @@ Sistema web completo desarrollado en PHP puro con arquitectura MVC para la gesti
 - **Unicidad**: Verificación de usuario/email únicos
 
 #### 📊 **Sistema de Logs de Seguridad**
+
 - Registro de intentos de login
 - Logs de accesos no autorizados
 - Detección de tokens CSRF inválidos
 - Auditoría de creación/modificación de usuarios
 
 #### 🔐 **Protección contra Vulnerabilidades**
+
 - **SQL Injection**: PDO prepared statements
 - **XSS**: `htmlspecialchars()` en todas las salidas
 - **Directory Traversal**: `.htaccess` protege directorios sensibles
@@ -55,6 +62,7 @@ Sistema web completo desarrollado en PHP puro con arquitectura MVC para la gesti
 ## 🏗️ Arquitectura
 
 ### 📁 **Estructura del Proyecto**
+
 ```
 innovacode/
 ├── app/
@@ -81,6 +89,7 @@ innovacode/
 ```
 
 ### 🎯 **Patrón MVC**
+
 - **Models**: Gestión de datos con PDO
 - **Views**: Templates PHP con separación completa
 - **Controllers**: Lógica de aplicación y validaciones
@@ -88,17 +97,20 @@ innovacode/
 ## 🔧 Instalación y Configuración
 
 ### 📋 **Requisitos**
+
 - PHP 8.0+
 - MySQL/MariaDB
 - Servidor web (Apache/Nginx)
 - mod_rewrite habilitado
 
 ### ⚙️ **Configuración**
+
 1. **Base de Datos**: Importar `database/innovacode.sql`
 2. **Configuración**: Copiar `config/env.example.php` a `config/env.php`
 3. **Permisos**: Configurar permisos de escritura en `logs/`
 
 ### 🔑 **Configuración de Base de Datos**
+
 ```php
 // config/env.php
 <?php
@@ -113,18 +125,21 @@ return [
 ## 💻 Tecnologías Utilizadas
 
 ### 🎨 **Frontend**
+
 - **Bootstrap 5** - Framework CSS responsivo
 - **JavaScript ES6+** - Funcionalidad dinámica
 - **Font Awesome** - Iconografía
 - **CSS3 Custom** - Estilos personalizados con gradientes
 
 ### ⚙️ **Backend**
+
 - **PHP 8** - Lenguaje principal
 - **PDO** - Acceso seguro a base de datos
 - **MySQL** - Sistema de gestión de base de datos
 - **Arquitectura MVC** - Patrón de diseño
 
 ### 🛠️ **Herramientas de Desarrollo**
+
 - **Git** - Control de versiones
 - **GitHub** - Repositorio remoto
 - **Composer** (preparado) - Gestión de dependencias
@@ -134,12 +149,14 @@ return [
 ### 👤 **Roles de Usuario**
 
 #### 🔓 **Usuario Regular**
+
 - Ver noticias públicas
 - Solicitar citaciones
 - Gestionar perfil personal
 - Acceso al dashboard básico
 
 #### 👑 **Administrador**
+
 - Gestión completa de usuarios (CRUD)
 - Administración de noticias
 - Gestión de citaciones
@@ -147,6 +164,7 @@ return [
 - Panel de administración completo
 
 ### 🔐 **Flujo de Autenticación**
+
 1. **Registro**: Validación estricta + confirmación de email
 2. **Login**: Rate limiting + logs de seguridad
 3. **Sesión**: Gestión segura con roles
@@ -155,6 +173,7 @@ return [
 ## 🛡️ Consideraciones de Seguridad
 
 ### ✅ **Implementado**
+
 - Hash seguro de contraseñas
 - Protección CSRF completa
 - Validación de entrada estricta
@@ -164,6 +183,7 @@ return [
 - Control de acceso basado en roles
 
 ### 🔄 **Mejoras Futuras Sugeridas**
+
 - Autenticación de dos factores (2FA)
 - Recuperación de contraseña por email
 - Bloqueo de IP por intentos fallidos
@@ -173,6 +193,7 @@ return [
 ## 📈 Estado del Proyecto
 
 ### ✅ **Completado (100%)**
+
 - ✅ Arquitectura MVC limpia
 - ✅ Funcionalidades CRUD completas
 - ✅ Sistema de seguridad robusto
@@ -181,6 +202,7 @@ return [
 - ✅ Documentación completa
 
 ### 🎯 **Listo para Producción**
+
 El proyecto cumple con todos los estándares de seguridad modernos y está preparado para entornos de producción con las configuraciones adecuadas.
 
 ---
