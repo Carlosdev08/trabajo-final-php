@@ -1,0 +1,34 @@
+# Redirigir todo el tráfico a la carpeta public
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirigir a public/ si no estamos ya allí
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/Trabajo-MasterD/innovacode/public/
+    RewriteRule ^(.*)$ public/$1 [L,QSA]
+</IfModule>
+
+# Denegar acceso a archivos sensibles
+<Files ".env">
+    Require all denied
+</Files>
+
+<Files ".env.php">
+    Require all denied
+</Files>
+
+<Files "composer.json">
+    Require all denied
+</Files>
+
+<Files "composer.lock">
+    Require all denied
+</Files>
+
+# Denegar acceso a directorios del framework
+RedirectMatch 403 ^/app/
+RedirectMatch 403 ^/config/
+RedirectMatch 403 ^/core/
+RedirectMatch 403 ^/database/
+RedirectMatch 403 ^/routes/

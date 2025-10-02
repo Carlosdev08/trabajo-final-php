@@ -1,0 +1,46 @@
+<IfModule mod_rewrite.c>
+    Options -Multiviews -Indexes
+    RewriteEngine On
+
+    # Forzar HTTPS solo cuando no es entorno local
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP_HOST} !^localhost(:[0-9]+)?$
+    RewriteCond %{HTTP_HOST} !^127\.0\.0\.1(:[0-9]+)?$
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Pasar cabecera Authorization (Basic/Bearer)
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Pasar cabecera XSRF si existe (opcional)
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:x-xsrf-token}]
+
+    # Servir assets existentes directamente
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^assets/ - [L]
+
+    # Enviar el resto de peticiones al front controller
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|webp|woff2?)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 month"
+</IfModule>

@@ -1,0 +1,60 @@
+<?php
+namespace App\Models;
+
+class UserLogin extends BaseModel
+{
+    public function create(array $data): int
+    {
+        $sql = 'INSERT INTO users_login (idUser, usuario, email, password, rol)
+                VALUES (:idUser, :usuario, :email, :password, :rol)';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':idUser' => $data['idUser'],
+            ':usuario' => $data['usuario'],
+            ':email' => $data['email'],
+            ':password' => password_hash($data['password'], PASSWORD_BCRYPT, ['cost' => 12]),
+            ':rol' => $data['rol'] ?? 'user',
+        ]);
+        return (int) $this->pdo->lastInsertId();
+    }
+
+    public function findByUsuario(string $usuario): ?array
+    {
+        $stmt = $this->pdo->prepare('SELECT ul.*, ud.nombre, ud.apellidos 
+                                     FROM users_login ul 
+                                     JOIN users_data ud ON ul.idUser = ud.idUser 
+                                     WHERE ul.usuario = :u');
+        $stmt->execute([':u' => $usuario]);
+        $row = $stmt->fetch();
+        return $row ?: null;
+    }
+
+    public function updatePassword(int $idLogin, string $newPassword): bool
+    {
+        $sql = 'UPDATE users_login SET password = :password WHERE idLogin = :idLogin';
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([
+            ':idLogin' => $idLogin,
+            ':password' => password_hash($newPassword, PASSWORD_BCRYPT, ['cost' => 12])
+        ]);
+    }
+
+    public function update(int $idLogin, array $data): bool
+    {
+        $sql = 'UPDATE users_login SET usuario = :usuario, email = :email, rol = :rol WHERE idLogin = :idLogin';
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([
+            ':idLogin' => $idLogin,
+            ':usuario' => $data['usuario'],
+            ':email' => $data['email'],
+            ':rol' => $data['rol'] ?? 'user',
+        ]);
+    }
+
+    public function delete(int $idLogin): bool
+    {
+        $sql = 'DELETE FROM users_login WHERE idLogin = :idLogin';
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([':idLogin' => $idLogin]);
+    }
+}
