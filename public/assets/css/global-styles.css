@@ -49,6 +49,23 @@ main.container {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
+/* Estilos para tarjetas clickeables */
+.clickable-card {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.clickable-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.clickable-card:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
 /* Mejorar el jumbotron/hero */
 .jumbotron {
   background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
