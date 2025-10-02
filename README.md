@@ -105,7 +105,7 @@ innovacode/
 
 ### ⚙️ **Configuración**
 
-1. **Base de Datos**: Importar `database/innovacode.sql`
+1. **Base de Datos**: Importar `database/newsletters.sql` (crea la BD `newsletters`)
 2. **Configuración**: Copiar `config/env.example.php` a `config/env.php`
 3. **Permisos**: Configurar permisos de escritura en `logs/`
 
@@ -114,13 +114,16 @@ innovacode/
 ```php
 // config/env.php
 <?php
-return [
-    'DB_HOST' => 'localhost',
-    'DB_NAME' => 'innovacode',
-    'DB_USER' => 'usuario',
-    'DB_PASS' => 'contraseña',
-];
+$_ENV['DB_HOST'] = '127.0.0.1';
+$_ENV['DB_NAME'] = 'newsletters';
+$_ENV['DB_USER'] = 'root';
+$_ENV['DB_PASS'] = '';
 ```
+
+### 👤 **Credenciales de Acceso**
+
+- **Administrador**: `admin` / `admin123`
+- **Usuario Demo**: `miralofles` / `user123`
 
 ## 💻 Tecnologías Utilizadas
 
